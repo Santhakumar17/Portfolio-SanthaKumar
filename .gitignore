@@ -39,3 +39,9 @@ terraform.tfstate.backup
 # ansible
 .ansible
 *.retry
+
+
+# ppk 
+new-key.pem
+*.ppk
+*.pem
