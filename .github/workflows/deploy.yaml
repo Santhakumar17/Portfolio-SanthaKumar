@@ -24,11 +24,11 @@ jobs:
             set -e
             cd ~
 
-            if [ -d "sandy-portfolio" ] && [ ! -d "sandy-portfolio/.git" ]; then
-              rm -rf sandy-portfolio
+            if [ -d "santhakumar_portfolio" ] && [ ! -d "santhakumar_portfolio/.git" ]; then
+              rm -rf santhakumar_portfolio
             fi
 
-            if [ ! -d "sandy-portfolio" ]; then
+            if [ ! -d "santhakumar_portfolio" ]; then
               git clone https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_PAT }}@github.com/Santhakumar17/Portfolio-SanthaKumar.git santhakumar_portfolio
             fi
 
