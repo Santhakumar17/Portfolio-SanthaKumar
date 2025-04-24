@@ -7,7 +7,7 @@ const projectsData = [
     image: "/portfolio_png.png",
     title: "Portfolio",
     description: [
-      "This project is a portfolio website, developed using React and Tailwind CSS to ensure a modern and responsive design.",
+      "This project is a portfolio website, with a modern and responsive design",
       "Containerized the application with Docker and managed services using Docker Compose.",
       "Hosted on AWS EC2, ensuring high availability and scalability.",
       "Configured Nginx as the web server for efficient content delivery.",
@@ -18,9 +18,6 @@ const projectsData = [
       "for configuration management, I used Ansible to automate the setup and deployment of the application.",
     ],
     technologies: [
-      "HTML & CSS",
-      "JavaScript",
-      "React.js",
       "Docker and Docker Compose",
       "AWS EC2",
       "Nginx",
