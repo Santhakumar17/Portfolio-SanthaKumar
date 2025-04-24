@@ -24,7 +24,7 @@ const projectsData = [
       "GitHub Actions",
       "CI/CD",
     ],
-    link: "https://sandy-eat-curious.vercel.app/",
+    link: " https://github.com/Santhakumar17/Portfolio-SanthaKumar/",
   },
   
   /*
