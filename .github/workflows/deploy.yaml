@@ -32,7 +32,7 @@ jobs:
               git clone https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_PAT }}@github.com/Santhakumar17/Portfolio-SanthaKumar.git santhakumar_portfolio
             fi
 
-            cd sandy-portfolio
+            cd santhakumar_portfolio
             git pull https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_PAT }}@github.com/Santhakumar17/Portfolio-SanthaKumar.git main
 
             sudo docker-compose down || true
