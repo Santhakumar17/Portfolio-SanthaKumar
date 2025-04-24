@@ -1,0 +1,41 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Add SSH key
+        run: |
+          echo "${{ secrets.AWS_SSH_KEY }}" > private_key.pem
+          chmod 600 private_key.pem
+
+      - name: SSH and deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@${{ secrets.AWS_EC2_IP }} << EOF
+            set -e
+            cd ~
+
+            if [ -d "sandy-portfolio" ] && [ ! -d "sandy-portfolio/.git" ]; then
+              rm -rf sandy-portfolio
+            fi
+
+            if [ ! -d "sandy-portfolio" ]; then
+              git clone https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_PAT }}@github.com/Santhakumar17/portfolio.git sandy-portfolio
+            fi
+
+            cd sandy-portfolio
+            git pull https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_PAT }}@github.com/Santhakumar17/portfolio.git main
+
+            sudo docker-compose down || true
+            sudo docker-compose up --build -d
+            sudo systemctl restart nginx || echo "⚠️ NGINX restart failed"
+          EOF
