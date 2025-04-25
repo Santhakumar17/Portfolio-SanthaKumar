@@ -14,7 +14,7 @@ const Navbar = () => {
         href="#home"
         className="title text-xl sm:text-2xl md:text-3xl opacity-100 hover:scale-110 cursor-pointer"
       >
-        Santha Kumar
+        Santha Kumar S
       </a>
 
       {isOpen ? (
