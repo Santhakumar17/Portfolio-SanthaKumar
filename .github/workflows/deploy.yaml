@@ -16,7 +16,7 @@ jobs:
       - name: Add SSH key
         run: |
           echo "${{ secrets.AWS_SSH_KEY }}" > private_key.ppk
-          chmod 600 private_key.pem
+          chmod 600 private_key.ppk
 
       - name: SSH and deploy
         run: |
