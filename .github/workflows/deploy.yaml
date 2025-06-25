@@ -15,12 +15,12 @@ jobs:
 
       - name: Add SSH key
         run: |
-          echo "${{ secrets.AWS_SSH_KEY }}" > private_key.ppk
-          chmod 600 private_key.ppk
+          echo "${{ secrets.AWS_SSH_KEY }}" > private_key.pem
+          chmod 600 private_key.pem
 
       - name: SSH and deploy
         run: |
-          ssh -o StrictHostKeyChecking=no -i private_key.ppk ubuntu@${{ secrets.AWS_EC2_IP }} << EOF
+          ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@${{ secrets.AWS_EC2_IP }} << EOF
             set -e
             cd ~
 
